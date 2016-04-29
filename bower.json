@@ -1,0 +1,22 @@
+{
+  "name": "calendar",
+  "description": "Simple Calendar App",
+  "main": "client/app.js",
+  "authors": [
+    "Nick Echols"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "client/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-route": "^1.5.5",
+    "moment": "^2.13.0"
+  }
+}

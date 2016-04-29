@@ -1,0 +1,1 @@
+angular.module('calendar', ['ngRoute', 'appRoutes', 'MonthCtrl', 'CalendarFactory']);

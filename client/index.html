@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Calendar</title>
+  <base href="/">
+</head>
+
+<body ng-app="calendar" >
+  <div class="container">
+    <div ng-view></div>
+  </div>
+  
+  <!-- JS -->
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.min.js"></script>
+  <script src="bower_components/moment/min/moment.min.js"></script>
+  <script src="js/controllers/MonthCtrl.js"></script>
+  <script src="js/services/CalendarFactory.js"></script>
+  <script src="js/routes.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
