@@ -1,6 +1,13 @@
 <header>
-  <h2 class="month">{{monthName}}</h2>
+  <h2 class="month">{{monthName}} {{year}}</h2>
 </header>
 <main>
-
+  <header class="day-names">
+  <div class="day-name" ng-repeat="day in dayNames track by $index">{{day}}</div>
+  </header>
+  <div class="grid">
+    <div class="date-box" ng-repeat="date in days track by $index" >
+      {{date.index}}
+    </div>
+  </div>
 </main>

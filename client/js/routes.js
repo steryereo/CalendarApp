@@ -10,5 +10,4 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
   });
 
   $locationProvider.html5Mode(true);
-
 }]);

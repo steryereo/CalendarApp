@@ -1,0 +1,67 @@
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+  font-family: Helvetica, sans-serif;
+  color:#88c1d2;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin:0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+}
+.container {
+  width:95%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 20px 0;
+  position: relative;
+}
+.date-box, .day-name {
+  width:13.2%;
+  min-width: 60px;
+  margin:0.5%;
+  text-align: center;
+  float:left;
+
+}
+.date-box {
+  background-color: gray;
+  border-radius: 2px;
+  height:60px;
+  vertical-align: middle;
+  padding: 8px;
+  font-size: 32px;
+  overflow:hidden;
+  position:relative;
+}
+.date-box img {
+  width:100%;
+  z-index: 1;
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+.day-name {
+  display: inline-block;
+  width:13.2%;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+.invisible {
+  visibility: hidden;
+}
+.transparent {
+  opacity:0.5;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+  transition: opacity .25s ease-in-out;
+}
