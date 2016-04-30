@@ -1,37 +1,41 @@
 angular.module('CalendarFactory', []).factory('Calendar', ['$http', function($http) { 
+  var events;
+  if (localStorage) {
+    events = JSON.parse(localStorage.getItem('nickechols.calendar.events'));
+  }
+  events = events || {};
 
   return {
     getDays: function(year, month) {
-      var firstOfMonth = moment( {y: Number(year), m: Number(month), d: 1});
+      var firstOfMonth = moment( {y: Number(year), M: Number(month) - 1, d: 1});
       var dayOfWeek = firstOfMonth.day(); // gets number 0-6 : sun-sat
       var days = [];
       var daysInMonth = firstOfMonth.daysInMonth();
       var day = dayOfWeek * -1 + 1; // start on the preceding sunday
       while (day <= daysInMonth) {
+        var dateObj = moment(firstOfMonth).date(day);
+        // initialize events for day
+        events[dateObj.format('YYYYMMDD')] = events[dateObj.format('YYYYMMDD')] || [];
         days.push({
-          dateObj: firstOfMonth.date(day),
-          index: day
+          dateObj: dateObj,
+          index: day,
+          events: events[dateObj.format('YYYYMMDD')],
+          today: moment().isSame(moment({y: Number(year), M: Number(month) - 1, d: day}), 'day')
         });
         day++;
       }
       return days;
     },
 
-  //   get: function() {
-  //     return $http.get('/api/nerds');
-  //   },
+    addEvent: function(dateObj, event) {
+      events[dateObj.format('YYYYMMDD')] = events[dateObj.format('YYYYMMDD')] || [];
+      events[dateObj.format('YYYYMMDD')].push(event);
+      if(localStorage) {
+        localStorage.setItem('nickechols.calendar.events', JSON.stringify(events));
+      }
+    },
 
-
-  //   // these will work when more API routes are defined on the Node side of things
-  //   // call to POST and create a new nerd
-  //   create: function(nerdData) {
-  //     return $http.post('/api/nerds', nerdData);
-  //   },
-
-  //   // call to DELETE a nerd
-  //   delete: function(id) {
-  //     return $http.delete('/api/nerds/' + id);
-  //   }
+    events: events
   }
 
 }]);

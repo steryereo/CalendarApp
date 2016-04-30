@@ -9,13 +9,40 @@ html {
   box-sizing: inherit;
 }
 
-body {
+body, ul, li {
   margin:0;
   padding: 0;
 }
 
 header {
   text-align: center;
+}
+ul {
+  list-style: none;
+}
+
+dt {
+  font-size: 1.5em
+}
+dd {
+  margin: 0;
+  color: grey;
+}
+button {
+  font-size: 1rem;
+  font-family: Helvetica, sans-serif;
+  padding: 0.25em 0.5em;
+  color: #666;
+  border: none;
+  background: #88c1d2;
+}
+button:hover {
+  color: #888;
+}
+input {
+   font-size: 1rem;
+  font-family: Helvetica, sans-serif;
+  padding: 0.5em 1em;
 }
 .container {
   width:95%;
@@ -26,35 +53,45 @@ header {
 }
 .date-box, .day-name {
   width:13.2%;
-  min-width: 60px;
   margin:0.5%;
   text-align: center;
-  float:left;
-
+  display: inline-block;
 }
 .date-box {
   background-color: gray;
   border-radius: 2px;
   height:60px;
-  vertical-align: middle;
-  padding: 8px;
-  font-size: 32px;
+  padding: 0.5em;
   overflow:hidden;
   position:relative;
 }
-.date-box img {
-  width:100%;
-  z-index: 1;
-  position:absolute;
-  top:0;
-  left:0;
+.date-box:hover {
+  background-color: #ccc;
+}
+.date-box time {
+  position: absolute;
+  font-size: 1rem;
+  top: 0.5em;
+  left: 0.5em;
+}
+.selected {
+  border: 4px solid #88c1d2;
+}
+.today {
+  background-color: #666;
 }
 
 .day-name {
-  display: inline-block;
-  width:13.2%;
+  overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
+}
+.events {
+  padding: 1em;
+  border: 1px solid #ccc;  
+}
+.event-list li {
+  margin: 1em 0;
 }
 .invisible {
   visibility: hidden;

@@ -6,7 +6,7 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
     controller: 'MonthController'
   })
   .otherwise({
-    redirectTo: '/' + new Date().getFullYear() + '/' + new Date().getMonth()
+    redirectTo: '/' + moment().format('YYYY') + '/' + moment().format('MM')
   });
 
   $locationProvider.html5Mode(true);

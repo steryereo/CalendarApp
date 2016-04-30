@@ -3,11 +3,32 @@
 </header>
 <main>
   <header class="day-names">
-  <div class="day-name" ng-repeat="day in dayNames track by $index">{{day}}</div>
+    <div class="day-name" ng-repeat="day in dayNames track by $index">{{day}}</div>
   </header>
   <div class="grid">
-    <div class="date-box" ng-repeat="date in days track by $index" >
-      {{date.index}}
+    <div class="date-box" ng-repeat="date in days track by $index" ng-class="{invisible: date.index < 1, today: date.today, selected: date.dateObj.date() === currentDay.date()}" ng-click="setDay(date.dateObj)">
+      <time datetime="{{date.dateObj.toString()}}">{{date.index}}</time>
     </div>
   </div>
+  <section class="events">
+    <header>
+      <h3>Events for {{currentDay.format('dddd, MMMM DD')}}</h3>
+    </header>
+    <button class="add-event icon-button" ng-click="showEventForm()">
+      <i class="fa fa-plus"></i> Add Event
+    </button>
+    <div class="new-event" ng-show="showNewEvent">
+      <form ng-submit=addEvent()>
+        <input type="text" name="event-title" ng-model="newEvent.title" ng-required="required">
+        <input type="text" name="event-description" ng-model="newEvent.description" ng-required="required">
+        <button type="submit">add</button>
+      </form>
+    </div>
+    <ul class="event-list">
+      <li ng-repeat="event in events track by $index">
+        <dt>{{event.title}}</dt>
+        <dd>{{event.description}}</dd>
+      </li>
+    </ul>
+  </section>
 </main>
