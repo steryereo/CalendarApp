@@ -12,6 +12,7 @@
   <div class="grid">
     <div class="date-box" ng-repeat="date in days track by $index" ng-class="{invisible: date.index < 1, today: date.today, selected: date.dateObj.date() === currentDay.date()}" ng-click="setDay(date.dateObj)">
       <time datetime="{{date.dateObj.toString()}}">{{date.index}}</time>
+      <i class="cancel fa fa-circle" ng-show="date.events.length"></i>
     </div>
   </div>
   <section class="events">

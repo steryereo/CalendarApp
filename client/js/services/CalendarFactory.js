@@ -29,6 +29,7 @@ angular.module('CalendarFactory', []).factory('Calendar', ['$http', function($ht
   var addEvent = function(dateObj, event) {
     events[dateObj.format('YYYYMMDD')] = events[dateObj.format('YYYYMMDD')] || [];
     events[dateObj.format('YYYYMMDD')].push(event);
+    saveStorage();
 
   }
   var saveStorage = function() {
