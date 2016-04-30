@@ -30,7 +30,10 @@
     </div>
     <ul class="event-list">
       <li ng-repeat="event in events track by $index">
-        <dt>{{event.title}}</dt>
+        <dt>{{event.title}} 
+         <i class="icon-button fa fa-pencil" ng-click="editEvent()"></i>
+         <i class="icon-button fa fa-trash" ng-click="deleteEvent(event)"></i>
+        </dt>
         <dd>{{event.description}}</dd>
       </li>
     </ul>

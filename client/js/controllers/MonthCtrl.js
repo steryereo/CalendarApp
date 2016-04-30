@@ -33,10 +33,14 @@ angular.module('MonthCtrl', [])
     $scope.showNewEvent = false;
   }
 
-  $scope.deleteEvent = function() {
-
+  $scope.deleteEvent = function(event) {
+    $scope.events.splice($scope.events.indexOf(event), 1);
+    Calendar.saveStorage();
   }
 
+  $scope.editEvent = function () {
+    
+  }
   $scope.saveEvent = function() {
 
   }
