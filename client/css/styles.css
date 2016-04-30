@@ -97,7 +97,9 @@ input {
 }
 .events {
   padding: 1em;
-  border: 1px solid #ccc;  
+  background-color: #eee;
+  color: #75abbd;
+  border-radius: 2px;
 }
 .cancel {
   color: #e48181;
@@ -108,12 +110,6 @@ input {
 }
 .invisible {
   visibility: hidden;
-}
-.transparent {
-  opacity:0.5;
-  -moz-transition: opacity .25s ease-in-out;
-  -webkit-transition: opacity .25s ease-in-out;
-  transition: opacity .25s ease-in-out;
 }
 
 @media (max-width: 400px) {
