@@ -1,5 +1,5 @@
 angular.module('MonthCtrl', [])
-.controller('MonthController', function($scope, $routeParams, Calendar) {
+.controller('MonthController', function($scope, $routeParams, $location, Calendar) {
   var month = moment( $routeParams.year + ' ' + $routeParams.month, 'YYYY MM');
   $scope.newEvent = {
     title: '',
@@ -30,19 +30,28 @@ angular.module('MonthCtrl', [])
       title: '',
       description: ''
     };
+    $scope.showNewEvent = false;
   }
 
   $scope.deleteEvent = function() {
 
   }
 
-  $scope.save
+  $scope.saveEvent = function() {
+
+  }
+
+  $scope.goToMonth = function(toAdd) {
+    var newMonth = moment($scope.currentDay).add(toAdd, 'months')
+    $location.path(newMonth.format('/YYYY/MM'))
+  }
+
 
   if (moment().format('YYYY-MM') === $routeParams.year + '-' + $routeParams.month) {
     $scope.setDay(moment());
   }
   else {
-    $scope.setDay(moment( {y: Number(year), M: Number(month) - 1, d: 1}));
+    $scope.setDay(moment( {y: Number($routeParams.year), M: Number($routeParams.month) - 1, d: 1}));
   }
 
 });

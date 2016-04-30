@@ -31,18 +31,27 @@ dd {
 button {
   font-size: 1rem;
   font-family: Helvetica, sans-serif;
-  padding: 0.25em 0.5em;
+  padding: 0.5em 1em;
   color: #666;
   border: none;
   background: #88c1d2;
+  margin: 0.5em;
+  cursor:pointer;
 }
 button:hover {
   color: #888;
 }
+.icon-button {
+  cursor:pointer;
+  margin: 0.5em;
+}
+.icon-button:hover {
+  color:#666
+}
 input {
    font-size: 1rem;
   font-family: Helvetica, sans-serif;
-  padding: 0.5em 1em;
+  padding: 0.25em 0.5em;
 }
 .container {
   width:95%;

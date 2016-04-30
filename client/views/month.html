@@ -1,5 +1,9 @@
 <header>
-  <h2 class="month">{{monthName}} {{year}}</h2>
+  <h2 class="month">
+    <i class="icon-button fa fa-chevron-left" ng-click="goToMonth(-1)"></i>
+    {{monthName}} {{year}}
+    <i class="icon-button fa fa-chevron-right" ng-click="goToMonth(1)"></i>
+  </h2>
 </header>
 <main>
   <header class="day-names">
@@ -19,8 +23,8 @@
     </button>
     <div class="new-event" ng-show="showNewEvent">
       <form ng-submit=addEvent()>
-        <input type="text" name="event-title" ng-model="newEvent.title" ng-required="required">
-        <input type="text" name="event-description" ng-model="newEvent.description" ng-required="required">
+        <input type="text" name="event-title" ng-model="newEvent.title" required>
+        <input type="text" name="event-description" ng-model="newEvent.description" required>
         <button type="submit">add</button>
       </form>
     </div>
