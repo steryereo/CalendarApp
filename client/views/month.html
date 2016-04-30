@@ -23,18 +23,23 @@
     </button>
     <div class="new-event" ng-show="showNewEvent">
       <form ng-submit=addEvent()>
-        <input type="text" name="event-title" ng-model="newEvent.title" required>
-        <input type="text" name="event-description" ng-model="newEvent.description" required>
+        <input type="text" name="event-title" ng-model="newEvent.title" placeholder="Event Title" required>
+        <input type="text" name="event-description" ng-model="newEvent.description" placeholder="Description" required>
         <button type="submit">add</button>
       </form>
     </div>
     <ul class="event-list">
       <li ng-repeat="event in events track by $index">
-        <dt>{{event.title}} 
-         <i class="icon-button fa fa-pencil" ng-click="editEvent()"></i>
+        <dt><span ng-hide="event.editing">{{event.title}}</span>
+        <label ng-show="event.editing">Title <input type="text" name="event-title" ng-model="event.title" placeholder="Event Title" required>
+        </label>
+         <i class="icon-button fa fa-pencil" ng-click="toggleEditEvent(event)"></i>
          <i class="icon-button fa fa-trash" ng-click="deleteEvent(event)"></i>
         </dt>
-        <dd>{{event.description}}</dd>
+        <dd ng-hide="event.editing">{{event.description}}</dd>
+        <label ng-show="event.editing">Description <input type="text" name="event-description" placeholder="Description" ng-model="event.description" required>
+        </label>
+        <button type="submit" ng-click="saveEvent(event)" ng-show="event.editing">Save</button>
       </li>
     </ul>
   </section>

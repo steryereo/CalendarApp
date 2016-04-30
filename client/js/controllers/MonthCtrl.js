@@ -38,11 +38,12 @@ angular.module('MonthCtrl', [])
     Calendar.saveStorage();
   }
 
-  $scope.editEvent = function () {
-    
+  $scope.toggleEditEvent = function (event) {
+    event.editing = !event.editing;
   }
-  $scope.saveEvent = function() {
-
+  $scope.saveEvent = function(event) {
+    Calendar.saveStorage();
+    event.editing = false;
   }
 
   $scope.goToMonth = function(toAdd) {

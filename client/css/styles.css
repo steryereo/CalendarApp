@@ -70,6 +70,7 @@ input {
   background-color: gray;
   border-radius: 2px;
   height:60px;
+  font-size: 1rem;
   padding: 0.5em;
   overflow:hidden;
   position:relative;
@@ -79,7 +80,6 @@ input {
 }
 .date-box time {
   position: absolute;
-  font-size: 1rem;
   top: 0.5em;
   left: 0.5em;
 }
@@ -110,4 +110,17 @@ input {
   -moz-transition: opacity .25s ease-in-out;
   -webkit-transition: opacity .25s ease-in-out;
   transition: opacity .25s ease-in-out;
+}
+
+@media (max-width: 400px) {
+  .day-name {
+    text-overflow: "|";
+  }
+  .date-box {
+    height: 40px;
+    font-size: 0.8rem;
+  }
+  .events {
+    font-size: 80%;
+  } 
 }
