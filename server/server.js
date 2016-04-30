@@ -15,9 +15,6 @@ var path = require('path');
 // set our port
 var port = process.env.PORT || 8080; 
 
-// connect to our mongoDB database 
-// (uncomment after you enter in your own credentials in config/db.js)
-// mongoose.connect(db.url); 
 
 // get all data/stuff of the body (POST) parameters
 // parse application/json 
@@ -31,7 +28,7 @@ app.use(express.static(path.resolve(__dirname + '/../client')));
 
 
 app.get('*', function(req, res) {
-  res.sendfile(path.resolve(__dirname + '/../client/index.html')); // load our public/index.html file
+  res.sendFile(path.resolve(__dirname + '/../client/index.html')); // load our public/index.html file
 });
 // routes ==================================================
 // require('./app/routes')(app); // configure our routes
