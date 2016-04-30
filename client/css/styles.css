@@ -99,6 +99,10 @@ input {
   padding: 1em;
   border: 1px solid #ccc;  
 }
+.cancel {
+  color: #e48181;
+  font-size: 1.5em;
+}
 .event-list li {
   margin: 1em 0;
 }

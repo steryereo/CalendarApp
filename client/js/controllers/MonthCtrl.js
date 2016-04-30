@@ -24,14 +24,19 @@ angular.module('MonthCtrl', [])
     $scope.events = Calendar.events[$scope.currentDay.format('YYYYMMDD')]
   }
 
-  $scope.addEvent = function() {
-    Calendar.addEvent($scope.currentDay, $scope.newEvent);
+  $scope.clearAddEvent = function() {
     $scope.newEvent = {
       title: '',
       description: ''
     };
     $scope.showNewEvent = false;
   }
+
+  $scope.addEvent = function() {
+    Calendar.addEvent($scope.currentDay, $scope.newEvent);
+    $scope.clearAddEvent();
+  }
+  
 
   $scope.deleteEvent = function(event) {
     $scope.events.splice($scope.events.indexOf(event), 1);

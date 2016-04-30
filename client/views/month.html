@@ -26,6 +26,7 @@
         <input type="text" name="event-title" ng-model="newEvent.title" placeholder="Event Title" required>
         <input type="text" name="event-description" ng-model="newEvent.description" placeholder="Description" required>
         <button type="submit">add</button>
+        <i class="icon-button fa fa-times cancel" ng-click="clearAddEvent()"></i>
       </form>
     </div>
     <ul class="event-list">
